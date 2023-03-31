@@ -1,6 +1,8 @@
 name: Ejemplo de Pipeline con Parámetros
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   Ejecutar_en:
