@@ -1,0 +1,22 @@
+name: Ejemplo de Pipeline con Parámetros
+
+on: [push]
+
+jobs:
+  Ejecutar_en:
+    runs-on: ${{ inputs.entorno }}
+    inputs:
+      entorno:
+        description: 'Selecciona un entorno'
+        required: true
+        default: 'ubuntu-latest'
+        # Definir las opciones disponibles en el menú desplegable
+        # en la forma "valor: descripción"
+        # En este caso las opciones son "ubuntu-latest" y "windows-latest"
+        # El valor es lo que se usará para definir el valor del parámetro
+        choices: |
+          ubuntu-latest: Ubuntu 20.04 LTS
+          windows-latest: Windows 2019
+    steps:
+      - name: Ejecutar Comando en Entorno Seleccionado
+        run: echo "Ejecutando en el entorno ${{ inputs.entorno }}"
