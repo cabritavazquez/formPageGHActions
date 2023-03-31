@@ -1,4 +1,4 @@
-name: Ejemplo de Pipeline con Parámetros
+name: Ejemplo de Pipeline con Parámetros -> quesi.yml
 
 on:
   workflow_dispatch:
