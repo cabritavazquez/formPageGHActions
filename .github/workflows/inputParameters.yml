@@ -1,19 +1,49 @@
-name: Ejemplo de Pipeline con Parámetros
+# name: Ejemplo de Pipeline con Parámetros
+
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       entorno:
+#         description: 'Selecciona un entorno'
+#         required: true
+#         default: 'ubuntu-latest'
+#         choices: |
+#           ubuntu-latest: Ubuntu 20.04 LTS
+#           windows-latest: Windows 2019
+
+# jobs:
+#   Ejecutar_en:
+#     runs-on: ${{ github.event.inputs.entorno }}
+#     steps:
+#       - name: Ejecutar Comando en Entorno Seleccionado
+#         run: echo "Ejecutando en el entorno ${{ github.event.inputs.entorno }}"
+name: CI
 
 on:
   workflow_dispatch:
     inputs:
-      entorno:
-        description: 'Selecciona un entorno'
-        required: true
-        default: 'ubuntu-latest'
-        choices: |
-          ubuntu-latest: Ubuntu 20.04 LTS
-          windows-latest: Windows 2019
-
+      environment:
+        type: environment
+        description: Select the environment
+      boolean:
+        type: boolean
+        description: True or False
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - foo
+        - bar
+        - baz
 jobs:
-  Ejecutar_en:
-    runs-on: ${{ github.event.inputs.entorno }}
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Ejecutar Comando en Entorno Seleccionado
-        run: echo "Ejecutando en el entorno ${{ github.event.inputs.entorno }}"
+      - uses: actions/checkout@v2
+
+      - name: greet
+        run: | 
+          echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
+          echo "boolean is ${{ github.event.inputs.boolean }}" / ${{ inputs.boolean }} 
+          echo "choice is ${{ github.event.inputs.choice }}" / ${{ inputs.choice }}
