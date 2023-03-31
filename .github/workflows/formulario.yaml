@@ -9,4 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Imprimir valores
-        run: echo "Nombre: ${{ github.event.client_payload.nombre }} Apellidos: ${{ github.event.client_payload.apellidos }} Dirección: ${{ github.event.client_payload.direccion }}"
+        run: echo "hola"
+        #run: echo "Nombre: ${{ github.event.client_payload.nombre }} Apellidos: ${{ github.event.client_payload.apellidos }} Dirección: ${{ github.event.client_payload.direccion }}"
