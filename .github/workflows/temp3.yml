@@ -1,4 +1,4 @@
-name: Pipeline de Ejemplo
+name: Pipeline de Ejemplo 3
 
 on:
   create:
@@ -16,7 +16,7 @@ jobs:
         TEMPLATE_CONTENT: ${{ secrets.TEMPLATE_CONTENT }}
         
     - name: Instalar herramientas necesarias
-      run: npm install -g jq # Instala la herramienta jq para manejar JSON
+      run: npm install -g jq comander # Instala la herramienta jq para manejar JSON
 
     - name: Leer parámetros de template.json
       run: |
