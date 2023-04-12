@@ -1,0 +1,9 @@
+- name: Get values from the package.json
+  id: packageJson
+  uses: RadovanPelka/github-action-json@main
+  with:
+    path: "template.json" # default value
+
+- run: echo "name - ${{ steps.packageJson.outputs.nombre }}"
+- run: echo "version - ${{ steps.packageJson.outputs.tipo }}"
+- run: echo "author - ${{ steps.packageJson.outputs.num_elementos }}"
