@@ -1,0 +1,20 @@
+name: Pipeline de Ejemplo
+
+on:
+  create:
+    paths:
+      - template.json
+
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Obtener contenido de template.json
+      run: echo "::set-env name=TEMPLATE_CONTENT::$(cat template.json)"
+
+    - name: Ejecutar pasos de la pipeline
+      run: |
+        echo "Nombre: ${{ fromJson(env.TEMPLATE_CONTENT).nombre }}"
+        echo "Tipo: ${{ fromJson(env.TEMPLATE_CONTENT).tipo }}"
+        echo "Num_elementos: ${{ fromJson(env.TEMPLATE_CONTENT).num_elementos }}"
