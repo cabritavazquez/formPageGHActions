@@ -16,6 +16,6 @@ jobs:
 
       - name: Mostrar valores de package.json
         run: |
-          echo "name - ${{ steps.packageJson.outputs.nombre }}"
-          echo "version - ${{ steps.packageJson.outputs.tipo }}"
-          echo "author - ${{ steps.packageJson.outputs.num_elementos }}"
+          echo "nombre - ${{ steps.packageJson.outputs.nombre }}"
+          echo "tipo - ${{ steps.packageJson.outputs.tipo }}"
+          echo "num_elementos - ${{ steps.packageJson.outputs.num_elementos }}"
