@@ -1,0 +1,28 @@
+name: Pipeline de Ejemplo
+
+on:
+  create:
+    paths:
+      - template.json
+  workflow_dispatch:
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Obtener contenido de template.json
+      run: echo "${{ secrets.TEMPLATE_CONTENT }}" >> template.json
+      env:
+        TEMPLATE_CONTENT: ${{ secrets.TEMPLATE_CONTENT }}
+        
+    - name: Instalar herramientas necesarias
+      run: npm install -g jq # Instala la herramienta jq para manejar JSON
+
+    - name: Leer parámetros de template.json
+      run: |
+        nombre=$(jq -r .nombre template.json)
+        tipo=$(jq -r .tipo template.json)
+        num_elementos=$(jq -r .num_elementos template.json)
+        echo "Nombre: $nombre"
+        echo "Tipo: $tipo"
+        echo "Num_elementos: $num_elementos"
