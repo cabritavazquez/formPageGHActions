@@ -1,4 +1,4 @@
-name: Pipeline de Restart Liferay
+name: Pipeline de Despliegue
 
 on:
   push:
@@ -10,14 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout código fuente
+        uses: actions/checkout@v2
+
       - name: SCM
+        stage: scm
         run: echo "Ejecutando SCM"
       
       - name: Nexus
+        stage: nexus
         run: echo "Ejecutando Nexus"
       
       - name: Ansible Pre
+        stage: ansible_pre
         run: echo "Ejecutando Ansible Pre"
       
       - name: Ansible Pro
+        stage: ansible_pro
         run: echo "Ejecutando Ansible Pro"
