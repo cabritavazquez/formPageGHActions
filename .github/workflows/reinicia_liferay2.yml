@@ -1,0 +1,42 @@
+name: Pipeline de Restart Liferay 2
+on:
+  push:
+    branches:
+      - main
+jobs:
+  scm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código fuente
+        uses: actions/checkout@v2
+
+      - name: SCM
+        run: echo "Ejecutando SCM"
+      - name: test create txt
+        run: echo "hola" >> hola.txt
+      - name: do ls
+        run: ls
+
+  nexus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código fuente
+        uses: actions/checkout@v2
+
+      - name: Nexus
+        run: echo "Ejecutando Nexus"
+
+  ansible_pre:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código fuente
+        uses: actions/checkout@v2
+      - name: Ansible Pre
+        run: echo "Ejecutando Ansible Pre"
+  ansible_pro:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código fuente
+        uses: actions/checkout@v2
+      - name: Ansible Pro
+        run: echo "Ejecutando Ansible Pro"
