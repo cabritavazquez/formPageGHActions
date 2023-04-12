@@ -1,0 +1,30 @@
+name: Pipeline de Ejemplo 4
+
+on:
+  create:
+    paths:
+      - template.json
+  workflow_dispatch:
+
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Obtener contenido de template.json
+      run: echo "${{ secrets.TEMPLATE_CONTENT }}" >> template.json
+      env:
+        TEMPLATE_CONTENT: ${{ secrets.TEMPLATE_CONTENT }}
+        
+    - name: Instalar bibliotecas necesarias
+      run: npm install -g async # Instala la biblioteca async
+
+    - name: Leer parámetros de template.json
+      run: |
+        const fs = require('fs');
+        const async = require('async');
+        const contenido = fs.readFileSync('template.json', 'utf8');
+        const { nombre, tipo, num_elementos } = JSON.parse(contenido);
+        console.log(`Nombre: ${nombre}`);
+        console.log(`Tipo: ${tipo}`);
+        console.log(`Num_elementos: ${num_elementos}`);
