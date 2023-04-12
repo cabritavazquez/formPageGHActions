@@ -1,0 +1,23 @@
+name: Pipeline de Restart Liferay
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  despliegue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SCM
+        run: echo "Ejecutando SCM"
+      
+      - name: Nexus
+        run: echo "Ejecutando Nexus"
+      
+      - name: Ansible Pre
+        run: echo "Ejecutando Ansible Pre"
+      
+      - name: Ansible Pro
+        run: echo "Ejecutando Ansible Pro"
