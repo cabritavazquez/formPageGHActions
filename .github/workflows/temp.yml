@@ -1,0 +1,21 @@
+name: Pipeline de Ejemplo
+
+on:
+  create:
+    paths:
+      - template.json
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Leer archivo template.json
+      run: |
+        echo "Nombre: ${{fromJson(readFile('template.json')).nombre}}"
+        echo "Tipo: ${{fromJson(readFile('template.json')).tipo}}"
+        echo "Número de elementos: ${{fromJson(readFile('template.json')).num_elementos}}"
