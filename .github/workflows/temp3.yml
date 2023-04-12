@@ -16,7 +16,7 @@ jobs:
         TEMPLATE_CONTENT: ${{ secrets.TEMPLATE_CONTENT }}
         
     - name: Instalar herramientas necesarias
-      run: npm install -g jq comander # Instala la herramienta jq para manejar JSON
+      run: npm install -g jq commander # Instala la herramienta jq para manejar JSON
 
     - name: Leer parámetros de template.json
       run: |
