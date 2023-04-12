@@ -1,4 +1,4 @@
-name: Pipeline de Despliegue 3
+name: Pipeline de Restart Liferay 3
 on:
   push:
     branches:
