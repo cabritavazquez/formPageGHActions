@@ -1,0 +1,21 @@
+name: Mi Flujo de Trabajo
+on: 
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Obtener valores de package.json
+        id: packageJson
+        uses: RadovanPelka/github-action-json@main
+        with:
+          path: "template.json" # Ruta del archivo package.json en tu repositorio
+
+      - name: Mostrar valores de package.json
+        run: |
+          echo "name - ${{ steps.packageJson.outputs.nombre }}"
+          echo "version - ${{ steps.packageJson.outputs.tipo }}"
+          echo "author - ${{ steps.packageJson.outputs.num_elementos }}"
