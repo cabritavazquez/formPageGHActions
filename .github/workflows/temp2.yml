@@ -1,9 +1,10 @@
-name: Pipeline de Ejemplo
+name: Pipeline de Ejemplo 2
 
 on:
   create:
     paths:
       - template.json
+  workflow_dispatch:
 
 jobs:
   ejecutar:
