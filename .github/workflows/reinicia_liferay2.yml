@@ -9,7 +9,6 @@ jobs:
     steps:
       - name: Checkout código fuente
         uses: actions/checkout@v2
-
       - name: SCM
         run: echo "Ejecutando SCM"
       - name: test create txt
@@ -25,6 +24,8 @@ jobs:
 
       - name: Nexus
         run: echo "Ejecutando Nexus"
+      - name: do ls
+        run: ls
 
   ansible_pre:
     runs-on: ubuntu-latest
