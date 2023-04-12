@@ -1,3 +1,7 @@
+#
+# 
+#
+
 name: Pipeline de Restart Liferay 2
 on:
   push:
@@ -19,9 +23,10 @@ jobs:
   nexus:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout código fuente
         uses: actions/checkout@v2
-
+        
       - name: Nexus
         run: echo "Ejecutando Nexus"
       - name: do ls
@@ -30,14 +35,19 @@ jobs:
   ansible_pre:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout código fuente
         uses: actions/checkout@v2
+
       - name: Ansible Pre
         run: echo "Ejecutando Ansible Pre"
+
   ansible_pro:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout código fuente
         uses: actions/checkout@v2
+
       - name: Ansible Pro
         run: echo "Ejecutando Ansible Pro"

@@ -1,0 +1,32 @@
+name: Pipeline de Restart Liferay 4
+on:
+  push:
+    branches:
+      - main
+jobs:
+  scm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código fuente
+        uses: actions/checkout@v2
+
+  nexus:
+    needs: scm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutar comando echo
+        run: echo "hola" >> hola.txt
+
+  ansible_pre:
+    needs: nexus
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutar comando ls
+        run: ls
+
+  ansible_pro:
+    needs: ansible_pre
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutar otro comando
+        run: echo "Otro comando"
