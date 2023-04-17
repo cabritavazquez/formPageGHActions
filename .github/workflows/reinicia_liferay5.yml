@@ -20,6 +20,8 @@ jobs:
   ansible_pre:
     needs: nexus
     runs-on: ubuntu-latest
+    environment:
+      name: PRE
     steps:
       - name: Ejecutar comando ls
         run: ls
@@ -27,6 +29,8 @@ jobs:
   ansible_pro:
     needs: ansible_pre
     runs-on: ubuntu-latest
+    environment:
+      name: PRO
     steps:
       - name: Ejecutar otro comando
-        run: echo "Otro comando"
+        run: echo "Otro comando 2"
