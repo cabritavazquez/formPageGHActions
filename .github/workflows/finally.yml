@@ -1,4 +1,4 @@
-name: Mi Flujo de Trabajo
+name: Lambda Generator
 on: 
   workflow_dispatch:
 jobs:
@@ -12,9 +12,9 @@ jobs:
         id: packageJson
         uses: RadovanPelka/github-action-json@main
         with:
-          path: "template.json" # Ruta del archivo package.json en tu repositorio
+          path: "template.json" # Ruta del archivo template.json en tu repositorio
 
-      - name: Mostrar valores de package.json
+      - name: Mostrar valores de template.json
         run: |
           echo "nombre - ${{ steps.packageJson.outputs.nombre }}"
           echo "tipo - ${{ steps.packageJson.outputs.tipo }}"

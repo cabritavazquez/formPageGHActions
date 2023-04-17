@@ -27,6 +27,8 @@ jobs:
   ansible_pro:
     needs: ansible_pre
     runs-on: ubuntu-latest
+    environment:
+      name: superpro
     steps:
       - name: Ejecutar otro comando
         run: echo "Otro comando"
