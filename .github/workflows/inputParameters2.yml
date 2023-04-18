@@ -11,3 +11,14 @@ on:
         description: 'Is a Release?'
         required: true
         default: 'no'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: greet
+        run: | 
+          echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
+          echo "is Release? ${{ github.event.inputs.boolean }}" / ${{ inputs.release }} 
