@@ -1,0 +1,13 @@
+name: Training with inputs parameters
+
+on:
+  workflow_dispatch:
+    inputs:
+      enviroment:
+        description: 'Define env'
+        required: true
+        default: 'dev'
+      release:
+        description: 'Is a Release?'
+        required: true
+        default: 'no'
