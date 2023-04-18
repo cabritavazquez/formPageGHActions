@@ -3,7 +3,7 @@ name: Training with inputs parameters
 on:
   workflow_dispatch:
     inputs:
-      enviroment:
+      environment:
         description: 'Define env'
         required: true
         default: 'dev'
