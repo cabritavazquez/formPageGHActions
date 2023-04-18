@@ -1,4 +1,8 @@
-name: Pipeline de Restart Liferay 4
+#
+# Diferentes jobs pero hago un actions/checkout@v2 en cada uno
+#
+
+name: Pipeline de Restart Liferay 4 - Diferentes Jobs pruebo Workspace
 on:
   push:
     branches:

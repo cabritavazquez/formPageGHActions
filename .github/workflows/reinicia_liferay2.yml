@@ -1,8 +1,8 @@
 #
-# 
+# Diferentes Jobs pero hago un actions/checkout@v2 en cada uno
 #
 
-name: Pipeline de Restart Liferay 2
+name: Pipeline de Restart Liferay 2 - Diferentes Jobs pero raro
 on:
   push:
     branches:

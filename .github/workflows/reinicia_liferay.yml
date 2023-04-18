@@ -1,4 +1,4 @@
-name: Pipeline de Restart Liferay
+name: Pipeline de Restart Liferay - Todo en el mismo Job
 
 on:
   push:

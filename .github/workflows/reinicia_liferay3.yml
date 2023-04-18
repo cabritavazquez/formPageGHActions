@@ -1,4 +1,8 @@
-name: Pipeline de Restart Liferay 3
+#
+# Diferentes jobs
+#
+
+name: Pipeline de Restart Liferay 3 - Diferentes Jobs
 on:
   push:
     branches:
