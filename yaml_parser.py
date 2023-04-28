@@ -2,7 +2,7 @@ import os
 import yaml
 
 try:
-    os.remove("lamda_prueba.tf")
+    os.remove("lambda_prueba.tf")
 except Exception:
     pass
 
@@ -12,6 +12,16 @@ def parse_yaml():
 
 def generate_terraform_code(data):
     print(data['lambdas'])
+
+    with open("lambda_prueba.tf", "w") as f:
+        f.write(
+            '''
+            module "lambda-bundle-netsales-process" {
+                source = "tfe1.sgtech.corp/curated-catalog/module-iam-sm/aws"
+                source = "1.6.1"
+            }
+            '''
+        )
 
 
 def main():
