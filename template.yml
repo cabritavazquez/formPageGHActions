@@ -1,0 +1,10 @@
+lambdas:
+  lambda-name:
+    s3_bucket: bucket
+    handler: test.lambda_handler
+    vpc_id: "12345"
+    subnet_ids:
+      sn1: "123"
+      sn2: "321"
+    lambda_role: "arn:iam:role:1234"
+    kms_key_arn: "arn:kms:key:"

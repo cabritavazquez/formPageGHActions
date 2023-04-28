@@ -1,6 +1,8 @@
 {
-    "nombre": "Lambda_Python",
-    "tipo": "Python",
-    "num_elementos": 10
-  }
+    "function_name": "hola",
+    "handler": "handler1",
+    "runtime": "python",
+    "filename": "filename1",
+    "role": "uno"
+}
   

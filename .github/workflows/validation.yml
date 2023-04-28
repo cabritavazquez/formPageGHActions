@@ -1,0 +1,32 @@
+name: Validación de JSON
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v2
+      - name: Setup python environment
+        run: |
+          python -m venv env
+          source env/bin/activate
+          pip3 install -r  ./py_req.txt
+      - name: Validate json command
+        run: |
+          source env/bin/activate
+          python ./json_validate.py
+      # - name: Ejecutar el validador de JSON
+      #   run: python json_validator.py > output.txt 2>&1
+
+      # - name: Mostrar el resultado de la validación
+      #   if: contains(file('output.txt'), 'JSON válido')
+      #   run: echo "Éxito"
+      
+      # - name: Mostrar el resultado de la validación
+      #   if: !contains(file('output.txt'), 'JSON válido')
+      #   run: echo "JSON no válido"
