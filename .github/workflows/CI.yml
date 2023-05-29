@@ -55,6 +55,8 @@ jobs:
           repository: cabritavazquez/testLambdaCode
           ref: main
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - name: Instalar jq
+        run: sudo apt-get install -y jq
       - name: Reading configuration.json
         run: |
           ls

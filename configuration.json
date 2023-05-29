@@ -1,0 +1,13 @@
+{
+	"Enviroment": {
+		"DEV": [{
+				"Bucket_name": "bucket1",
+				"Folder": "new_folder"
+			},
+			{
+				"Bucket_name": "bucket2",
+				"Folder": "new_foldertest"
+			}
+		]
+	}
+}
