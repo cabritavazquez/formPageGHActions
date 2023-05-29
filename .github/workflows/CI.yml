@@ -61,6 +61,7 @@ jobs:
         run: |
           ls
           TEST=$(jq -r '.S3' conf.json)
+          echo "TEST: $TEST"
       - name: Reading configuration.json
         run: |
           ls
