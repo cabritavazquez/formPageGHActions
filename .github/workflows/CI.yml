@@ -57,6 +57,10 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
       - name: Instalar jq
         run: sudo apt-get install -y jq
+      - name: Reading conf.json
+        run: |
+          ls
+          TEST=$(jq -r '.S3' conf.json)
       - name: Reading configuration.json
         run: |
           ls
