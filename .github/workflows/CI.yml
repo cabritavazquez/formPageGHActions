@@ -42,9 +42,34 @@ jobs:
 
   post:
     name: Post
+    needs: [Nexus]
     runs-on: ubuntu-latest
     steps:
       - name: Paso Post
         run: |
           echo "Hola Post"
           sleep 5
+      - name: Checkout código
+        uses: actions/checkout@v3
+        with:
+          repository: cabritavazquez/testLambdaCode
+          ref: main
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - name: Reading configuration.json
+        run: |
+          echo '${{ secrets.CONFIGURATION_JSON }}' > configuration.json
+          BUCKET_NAME=$(jq -r '.Enviroment.DEV.Buckets[0].bucket_name' configuration.json)
+          PATH=$(jq -r '.Enviroment.DEV.Buckets[0].path' configuration.json)
+          ARTIFACT_NAME=$(jq -r '.Enviroment.DEV.Buckets[0].artifact_name' configuration.json)
+          LAMBDA_NAME=$(jq -r '.Enviroment.DEV.Lambdas[0].lambda_name' configuration.json)
+          HANDLER=$(jq -r '.Enviroment.DEV.Lambdas[0].handler' configuration.json)
+          RUNTIME=$(jq -r '.Enviroment.DEV.Lambdas[0].Runtime' configuration.json)
+          MEMORY_SIZE=$(jq -r '.Enviroment.DEV.Lambdas[0].MemorySize' configuration.json)
+
+          echo "BUCKET_NAME: $BUCKET_NAME"
+          echo "PATH: $PATH"
+          echo "ARTIFACT_NAME: $ARTIFACT_NAME"
+          echo "LAMBDA_NAME: $LAMBDA_NAME"
+          echo "HANDLER: $HANDLER"
+          echo "RUNTIME: $RUNTIME"
+          echo "MEMORY_SIZE: $MEMORY_SIZE"
