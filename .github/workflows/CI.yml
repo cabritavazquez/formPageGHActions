@@ -80,3 +80,10 @@ jobs:
           echo "HANDLER: $HANDLER"
           echo "RUNTIME: $RUNTIME"
           echo "MEMORY_SIZE: $MEMORY_SIZE"
+
+      - name: Obtener archivos .py
+        run: |
+          FILES=$(ls *.py)
+          echo "hola: $FILES"
+          FILES_LIST=$(echo $FILES)
+          echo "Archivos .py encontrados: $FILES_LIST"
