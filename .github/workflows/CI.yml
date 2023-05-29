@@ -65,7 +65,7 @@ jobs:
       - name: Reading configuration.json
         run: |
           ls
-          BUCKET_NAME=$(jq -r ".Enviroment.DEV.Buckets[0].bucket_name" configuration.json)
+          BUCKET_NAME=$(jq -r ".Environment.DEV.Buckets[0].bucket_name" configuration.json)
           echo "BUCKET_NAME: $BUCKET_NAME"
           PATH=$(jq -r '.Enviroment.DEV.Buckets[0].path' configuration.json)
           ARTIFACT_NAME=$(jq -r '.Enviroment.DEV.Buckets[0].artifact_name' configuration.json)
