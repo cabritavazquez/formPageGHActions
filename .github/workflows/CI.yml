@@ -66,12 +66,12 @@ jobs:
         run: |
           ls
           BUCKET_NAME=$(jq -r ".Environment.DEV.Buckets[0].bucket_name" configuration.json)
-          PATH=$(jq -r ".Enviroment.DEV.Buckets[0].path" configuration.json)
-          ARTIFACT_NAME=$(jq -r ".Enviroment.DEV.Buckets[0].artifact_name" configuration.json)
-          LAMBDA_NAME=$(jq -r ".Enviroment.DEV.Lambdas[0].lambda_name" configuration.json)
-          HANDLER=$(jq -r ".Enviroment.DEV.Lambdas[0].handler" configuration.json)
-          RUNTIME=$(jq -r ".Enviroment.DEV.Lambdas[0].Runtime" configuration.json)
-          MEMORY_SIZE=$(jq -r ".Enviroment.DEV.Lambdas[0].MemorySize" configuration.json)
+          PATH=$(jq -r ".Environment.DEV.Buckets[0].path" configuration.json)
+          ARTIFACT_NAME=$(jq -r ".Environment.DEV.Buckets[0].artifact_name" configuration.json)
+          LAMBDA_NAME=$(jq -r ".Environment.DEV.Lambdas[0].lambda_name" configuration.json)
+          HANDLER=$(jq -r ".Environment.DEV.Lambdas[0].handler" configuration.json)
+          RUNTIME=$(jq -r ".Environment.DEV.Lambdas[0].Runtime" configuration.json)
+          MEMORY_SIZE=$(jq -r ".Environment.DEV.Lambdas[0].MemorySize" configuration.json)
 
           echo "BUCKET_NAME: $BUCKET_NAME"
           echo "PATH: $PATH"
