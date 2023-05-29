@@ -4,9 +4,7 @@
 
 name: Pipeline de Restart Liferay 3 - Diferentes Jobs
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   scm:
     runs-on: ubuntu-latest

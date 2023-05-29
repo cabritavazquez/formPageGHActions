@@ -1,9 +1,7 @@
 name: Pipeline de Restart Liferay - Todo en el mismo Job
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   despliegue:

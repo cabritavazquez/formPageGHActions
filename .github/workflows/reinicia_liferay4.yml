@@ -4,9 +4,7 @@
 
 name: Pipeline de Restart Liferay 4 - Diferentes Jobs pruebo Workspace
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   scm:
     runs-on: ubuntu-latest

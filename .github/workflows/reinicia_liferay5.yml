@@ -4,9 +4,7 @@
 
 name: Pipeline de Restart Liferay 5 - Diferentes Jobs con approvals en Enviroments
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   scm:
     runs-on: ubuntu-latest

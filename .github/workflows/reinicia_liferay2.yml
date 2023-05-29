@@ -4,9 +4,7 @@
 
 name: Pipeline de Restart Liferay 2 - Diferentes Jobs pero raro
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 jobs:
   scm:
     runs-on: ubuntu-latest
