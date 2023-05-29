@@ -1,0 +1,50 @@
+name: CI GitHub Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Paso Build
+        run: |
+          echo "Hola Build"
+          sleep 5
+
+  sonar:
+    name: Sonar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Paso Sonar
+        run: |
+          echo "Hola Sonar"
+          sleep 5
+
+  fortify:
+    name: Fortify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Paso Fortify
+        run: |
+          echo "Hola Fortify"
+          sleep 5
+
+  nexus:
+    name: Nexus
+    runs-on: ubuntu-latest
+    steps:
+      - name: Paso Nexus
+        run: |
+          echo "Hola Nexus"
+          sleep 5
+
+  post:
+    name: Post
+    runs-on: ubuntu-latest
+    steps:
+      - name: Paso Post
+        run: |
+          echo "Hola Post"
+          sleep 5
