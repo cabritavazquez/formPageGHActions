@@ -57,6 +57,7 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
       - name: Reading configuration.json
         run: |
+          ls
           echo '${{ secrets.CONFIGURATION_JSON }}' > configuration.json
           BUCKET_NAME=$(jq -r '.Enviroment.DEV.Buckets[0].bucket_name' configuration.json)
           PATH=$(jq -r '.Enviroment.DEV.Buckets[0].path' configuration.json)
